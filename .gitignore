@@ -54,3 +54,47 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+
+# --- Qt Creator & Build Artifacts ---
+# User-specific settings (machine-dependent)
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+CMakeLists.txt.user*
+
+# Build directories (adjust if you use a different naming convention)
+build-*/
+debug/
+release/
+modbus_poll_engine/build-*/
+
+# --- Generated Code ---
+# Meta-Object Compiler (MOC)
+moc_*.cpp
+moc_*.h
+*.moc
+
+# UI Header files
+ui_*.h
+
+# Resource files
+qrc_*.cpp
+
+# Compilation Database
+compile_commands.json
+
+# --- Compiled Files ---
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+
+# --- Miscellaneous ---
+*.autosave
+Makefile*
+*.qm
+

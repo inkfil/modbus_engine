@@ -28,23 +28,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}")
 message(STATUS "CMAKE_MODULE_PATH:        [${CMAKE_MODULE_PATH}]")
 
-# Find libmodbus
-# find_path(MODBUS_INCLUDE_DIR modbus/modbus.h)
-# find_library(MODBUS_LIBRARY modbus)
-# if(NOT MODBUS_INCLUDE_DIR OR NOT MODBUS_LIBRARY)
-#     message(FATAL_ERROR "libmodbus not found")
-# endif()
-
 # Include directories
 # set(BUILD_SHARED_LIBS OFF)
 
 
+# Find libmodbus
 # Manually search in Homebrew's common paths
+set(LIBMODBUS_ROOT "${CMAKE_SOURCE_DIR}/libs/macos/libmodbus-3.1.12/src")
 find_path(MODBUS_INCLUDE_DIR NAMES modbus.h
-          PATHS /opt/homebrew/include /opt/homebrew/include/modbus /usr/local/include/modbus)
+          PATHS /opt/homebrew/include /opt/homebrew/include/modbus /usr/local/include/modbus ${LIBMODBUS_ROOT})
 
 find_library(MODBUS_LIBRARY NAMES modbus
-             PATHS /opt/homebrew/lib /usr/local/lib)
+             PATHS /opt/homebrew/lib /usr/local/lib ${LIBMODBUS_ROOT})
 
  if(NOT MODBUS_INCLUDE_DIR OR NOT MODBUS_LIBRARY)
      message(FATAL_ERROR "libmodbus not found")
